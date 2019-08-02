@@ -11,11 +11,12 @@ project(download-libconfig)
 
 # DOCUMENTATION_START {
 hunter_add_package(libconfig)
+
+# find_package(libconfig++ CONFIG REQUIRED)
+# add_executable(boo_cpp boo.cpp)
+# target_link_libraries(boo_cpp PUBLIC libconfig::config++)
+
 find_package(libconfig CONFIG REQUIRED)
-
-add_executable(boo_cpp boo.cpp)
-target_link_libraries(boo_cpp PUBLIC PkgConfig::libconfig++)
-
 add_executable(boo_c boo.c)
-target_link_libraries(boo_c PUBLIC PkgConfig::libconfig)
+target_link_libraries(boo_c PUBLIC libconfig::config)
 # DOCUMENTATION_END }
